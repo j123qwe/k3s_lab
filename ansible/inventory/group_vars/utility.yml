@@ -1,0 +1,1 @@
+extra_agent_args: '--node-label nodeType=utility --kube-proxy-arg "metrics-bind-address=0.0.0.0:9997" --kube-proxy-arg "healthz-bind-address=0.0.0.0:9996" --kubelet-arg="read-only-port=9995" --kubelet-arg="healthz-port=9994" --kubelet-arg="--port=9998"'

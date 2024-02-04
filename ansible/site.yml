@@ -1,0 +1,43 @@
+---
+
+- hosts: k3s_cluster
+  gather_facts: yes
+  tags:
+    - master
+    - workers
+
+- hosts: master
+  gather_facts: no
+  become: yes
+  roles:
+    - role: prereq
+    - role: download
+  tags:
+    - master
+    - install
+
+- hosts: master
+  gather_facts: no
+  become: yes
+  roles:
+    - role: k3s/master
+  tags:
+    - master
+
+- hosts: node
+  gather_facts: no
+  become: yes
+  roles:
+    - role: prereq
+    - role: download
+  tags:
+    - workers
+    - install
+
+- hosts: node
+  gather_facts: no
+  become: yes
+  roles:
+    - role: k3s/node
+  tags:
+    - workers
