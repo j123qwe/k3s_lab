@@ -1,1 +1,4 @@
 keys/*
+tmp/*
+ansible/k3s.yaml
+k8s_flux_infra/*
